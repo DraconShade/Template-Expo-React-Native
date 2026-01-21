@@ -1,15 +1,15 @@
-import { Text, View } from "react-native";
+import { useTheme } from "@/theme/themeProvider";
+import { createThemeStyles } from "@/utils/createThemeStyles";
+import { Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const theme = useTheme();
+  const styles = createThemeStyles(theme);
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Image style={styles.gImage} source={require("@images/react-logo.png")} />
+    </SafeAreaView>
   );
 }
